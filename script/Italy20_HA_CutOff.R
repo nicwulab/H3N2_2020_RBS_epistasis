@@ -10,7 +10,8 @@ library(ggrepel)
 library(gridExtra)
 require(cowplot)
 
-filtered_data <- read.table(file = '../results/Ita20HA_MultiMutLib_filtered.tsv', sep = '\t', header = TRUE)
+input_data <- read.table(file = 'Ita20HA_MultiMutLib_filtered.tsv', sep = '\t', header = TRUE)
+filtered_data <- input_data%>% filter(grepl('L194P', mut))
 rep1_filtered_freq <- vector()
 counter <-0
 for (i in filtered_data$Rep1Count)
@@ -25,8 +26,8 @@ for (i in filtered_data$Rep2Count)
 filtered_data$Rep2FilteredFreq <- rep2_filtered_freq
 
 enrichment_correlation <-function (df, freq_cutoff_exponent){
-  dataset_cutoff <- df[which(df$Rep1FilteredFreq > 10^freq_cutoff_exponent & df$Rep2FilteredFreq > 10^freq_cutoff_exponent),]
-  dataset_after_cutoff<- dataset_cutoff%>% filter(grepl('L194P', mut))
+  dataset_after_cutoff <- df[which(df$Rep1FilteredFreq > 10^freq_cutoff_exponent & df$Rep2FilteredFreq > 10^freq_cutoff_exponent),]
+  #dataset_after_cutoff<- dataset_cutoff%>% filter(grepl('L194P', mut))
   post_cutoff_input_sum <- sum(dataset_after_cutoff$InputCount)
   post_cutoff_rep1_sum <- sum(dataset_after_cutoff$Rep1Count)
   post_cutoff_rep2_sum <- sum(dataset_after_cutoff$Rep2Count)
@@ -77,7 +78,7 @@ improved_enrichment_both_rep <- output1[which(output1$rep1_enrichment>l194p$rep1
 improved_enrichment_one_rep <- output1[which(output1$rep1_enrichment>l194p$rep1_enrichment | output1$rep2_enrichment>l194p$rep2_enrichment),]
 write.table(improved_enrichment_one_rep, file="improved_enrichment_one_rep.tsv", quote = FALSE, sep='\t', col.names = NA)
 write.table(improved_enrichment_both_rep, file="improved_enrichment_both_rep.tsv", quote = FALSE, sep='\t', col.names = NA)
-
+mutant_list <- c("A128T", "I130V", "K135T", "S138A", "T160K", "D186G", "N190D", 'S193F', 'L194P', 'P198S', 'D225G')
 count_both_rep<-count_common_mutation(mutant_list, improved_enrichment_both_rep)
 count_one_rep<-count_common_mutation(mutant_list, improved_enrichment_one_rep)
 
