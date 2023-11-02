@@ -7,7 +7,7 @@
 * [PEAR](https://github.com/tseemann/PEAR)
 
 ### Input files
-* [./fasta/Italy20HA_multilib_ref.fasta](./fasta/Italy20HA_multilib_ref.fasta): Reference amino acid seqeunce of Italy20HA regions of interests (contains L194P backgroud)
+* [./fasta/Italy20HA_mutlib_ref.fasta](./fasta/Italy20HA_multilib_ref.fasta): Reference amino acid seqeunce of Italy20HA regions of interests (contains L194P backgroud)
 * Raw read files in fastq format from NIH SRA database [BioProject PRJNA883249](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA883249)
 
 ### Merging the Illumina NGS raw reads using PEAR
