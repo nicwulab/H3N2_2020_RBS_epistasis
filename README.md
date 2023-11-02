@@ -1,10 +1,13 @@
-## Studying the Epistasis Effect within H3N2 Italy 20 HA Receptor Binding Site using Combinatorial Mutaional Scanning
+## Studying the Epistasis Effect within human H3N2 strain A/Italy/11871/2020 (Italy20) HA Receptor Binding Site using Combinatorial Mutaional Scanning
+
+### Obejctives
+We introduced 10 amino acid substitutions found betweeen human H3N2 strain A/Italy/11871/2020 (Italy20) and A/Singapore/INFIMH-16-0019/2016 (Sing16) to generate all possible combinations (1024 variants) and probe for potential epistasis effects.
 
 ### Dependencies
 * [Python](https://www.python.org/) (version 3.9)
 * [Biopython](https://github.com/biopython/biopython)
 * [R](https://www.r-project.org/) (version 4.1)
-* [PEAR](https://github.com/tseemann/PEAR)
+* [PEAR](https://github.com/tseemann/PEAR) (Zhang et al., PMID: 24142950)
 
 ### Input files
 * [./fasta/Italy20HA_multilib_ref.fasta](./fasta/Italy20HA_multilib_ref.fasta): Reference amino acid seqeunce of Italy20HA regions of interests (contains L194P backgroud)
@@ -23,3 +26,27 @@
       - [./fasta/Italy20HA_multilib_ref.fasta](./fasta/Italy20HA_multilib_ref.fasta)
     - Output files:
       - [./results/Ita20HA_MultiMutLib.tsv](/results/Ita20HA_MultiMutLib.tsv)
+
+### Filtering the enrichment results
+1. Filter out the variants that contains L194P
+``python3 script/Italy20_HA_filter.py``   
+    - Input files:
+      - [./results/Ita20HA_MultiMutLib.tsv](/results/Ita20HA_MultiMutLib.tsv)
+    - Output files:
+      - [./results/Ita20HA_MultiMutLib_filtered.tsv](/results/Ita20HA_MultiMutLib_filtered.tsv)
+
+2. Find variants that are highly enriched across both replicates
+``Rscript script/Italy20_HA_CutOff.R``   
+    - Input files:
+      - [./results/Ita20HA_MultiMutLib_filtered.tsv](/results/Ita20HA_MultiMutLib_filtered.tsv)
+    - Output files:
+      - [./results/mutation_count_size4.tsv](/results/mutation_count_size4.tsv)
+    - [./results/mutation_count_size43.tsv](/results/mutation_count_size43.tsv)
+
+### Ploting the enrichment data
+1. Plot the enrichment data across replicates
+``Rscript script/Italy20_plot_compare_rep.R``   
+    - Input files:
+      - [./results/Ita20HA_MultiMutLib_filtered.tsv](/results/Ita20HA_MultiMutLib_filtered.tsv)
+    - Output files:
+      - [graph/Italy20_mutlib_rep_compare.png](/graph/Italy20_mutlib_rep_compare.png)
