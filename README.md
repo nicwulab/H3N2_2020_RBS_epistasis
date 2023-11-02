@@ -20,6 +20,6 @@
 ``python3 script/Italy20_HA_fastq2enrich.py``   
     - Input files:
       - Merged read files in fastq_merged/ folder
-      - [./fasta/Italy20HA_multilib_ref.fasta](./fasta/Italy20HA_multilib_ref.fasta)
+      - [./fasta/Italy20HA_mutlib_ref.fasta](./fasta/Italy20HA_mutlib_ref.fasta)
     - Output files:
       - [./results/Ita20HA_MultiMutLib.tsv](/results/Ita20HA_MultiMutLib.tsv)
