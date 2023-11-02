@@ -27,18 +27,18 @@ PlotCompareFit_Rep <- function(Italy20_data, graphname){
                                                  title.vjust=0,
                                                  label.position="bottom")) +
            theme_cowplot(12) +
-           theme(axis.title=element_text(size=textsize,face="bold"),
-                 axis.text=element_text(size=textsize,face="bold"),
+           theme(axis.title=element_text(size=textsize,face="bold",family="Arial"),
+                 axis.text=element_text(size=textsize,face="bold",family="Arial"),
                  legend.title=element_blank(),
                  legend.key.size=unit(0.1,'in'),
                  legend.spacing.x=unit(0.03, 'in'),
-                 legend.text=element_text(size=textsize,face="bold"),
+                 legend.text=element_text(size=textsize,face="bold",family="Arial"),
                  legend.position='top') +
            labs(x=expression(bold(log['10']~enrich~'(Rep 1)')),y=expression(bold(log['10']~enrich~'(Rep 2)')))
     ggsave(graphname,p,height=2.8,width=2.5,dpi=600, bg='white')
     } 
 
-Italy20_data <- read_tsv('data/Ita20HA_MultiMutLib_filtered.tsv') %>%
+Italy20_data <- read_tsv('results/Ita20HA_MultiMutLib_filtered.tsv') %>%
                   filter(grepl('L194P', mut)) %>%
                   mutate(mutclass=mutclass-1)
 print (Italy20_data)

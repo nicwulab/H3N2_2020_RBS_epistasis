@@ -10,7 +10,7 @@ We introduced 10 amino acid substitutions found betweeen human H3N2 strain A/Ita
 * [PEAR](https://github.com/tseemann/PEAR) (Zhang et al., PMID: 24142950)
 
 ### Input files
-* [./fasta/Italy20HA_multilib_ref.fasta](./fasta/Italy20HA_multilib_ref.fasta): Reference amino acid seqeunce of Italy20HA regions of interests (contains L194P backgroud)
+* [./fasta/Italy20HA_mutlib_ref.fasta](./fasta/Italy20HA_mutlib_ref.fasta): Reference amino acid seqeunce of Italy20HA regions of interests (contains L194P backgroud)
 * Raw read files in fastq format from NIH SRA database [BioProject PRJNA883249](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA883249)
 
 ### Merging the Illumina NGS raw reads using PEAR
@@ -23,7 +23,7 @@ We introduced 10 amino acid substitutions found betweeen human H3N2 strain A/Ita
 ``python3 script/Italy20_HA_fastq2enrich.py``   
     - Input files:
       - Merged read files in fastq_merged/ folder
-      - [./fasta/Italy20HA_multilib_ref.fasta](./fasta/Italy20HA_multilib_ref.fasta)
+      - [./fasta/Italy20HA_mutlib_ref.fasta](./fasta/Italy20HA_mutlib_ref.fasta)
     - Output files:
       - [./results/Ita20HA_MultiMutLib.tsv](/results/Ita20HA_MultiMutLib.tsv)
 
