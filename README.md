@@ -1,7 +1,7 @@
-## Studying the Epistasis Effect within human H3N2 strain A/Italy/11871/2020 (Italy20) HA Receptor Binding Site using Combinatorial Mutaional Scanning
+## Mapping mutations that can confer H3N2 A/Italy/11871/2020 (Italy20) with L194P compatibility
 
 ### Obejctives
-We introduced 10 amino acid substitutions found betweeen human H3N2 strain A/Italy/11871/2020 (Italy20) and A/Singapore/INFIMH-16-0019/2016 (Sing16) to generate all possible combinations (1024 variants) and probe for potential epistasis effects.
+We introduced 10 amino acid substitutions found betweeen H3N2 A/Italy/11871/2020 (Italy20) and H3N2 A/Singapore/INFIMH-16-0019/2016 (Sing16) to generate all possible combinations (1024 variants) and probe for mutations that can confer compatibility with egg-adaptive mutation L194P.
 
 ### Dependencies
 * [Python](https://www.python.org/) (version 3.9)
